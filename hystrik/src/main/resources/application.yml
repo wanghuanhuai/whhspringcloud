@@ -1,0 +1,23 @@
+server:
+  port: 8010
+  ipAddress: 10.20.2.101
+spring:
+  application:
+    name: hystrik
+
+eureka:
+  instance:
+    prefer-ip-address: true
+    instance-id: ${server.ipAddress}:${server.port}
+  client:
+    service-url:
+      defaultZone: http://localhost:8070/eureka/
+feign:
+  hystrix:
+    enabled: true  #¿ªÆôÈÝ´í»úÖÆ
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: 'hystrix.stream'

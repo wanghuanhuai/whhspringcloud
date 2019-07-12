@@ -1,0 +1,18 @@
+server:
+  port: 8070
+spring:
+  application:
+    name: eureka-service
+
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    service-url:
+      defaultZone: http://localhost:8070/eureka/
+  server:
+    peer-node-read-timeout-ms: 1000
+#  server:
+#    enable-self-preservation: false  #设为false，关闭自我保护
+#    eviction-interval-timer-in-ms: 4000
+

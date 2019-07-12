@@ -1,0 +1,17 @@
+server:
+  ipAddress: 10.20.2.101
+  port: 8020
+spring:
+  application:
+    name: feign-client
+
+eureka:
+    instance:
+      prefer-ip-address: true
+      instance-id: ${server.ipAddress}:${server.port}
+    client:
+      service-url:
+        defaultZone: http://localhost:8070/eureka/
+feign:
+  hystrix:
+    enabled: true # 开启容错机制
